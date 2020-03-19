@@ -30,6 +30,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
+<<<<<<< HEAD
         auth.inMemoryAuthentication()
                 .withUser("user")
                 .password(encoder.encode("pass"))
