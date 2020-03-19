@@ -20,8 +20,9 @@ public class ClienteResource {
     @PostMapping
     public ResponseEntity<Cliente> createCliente(@RequestBody ClienteVO clienteVO) {
         Cliente cliente = new Cliente();
+        cliente.setIdentificacionCli(clienteVO.getIdentificacionCli());
         cliente.setNombreCli(clienteVO.getNombreCli());
-        cliente.setApellidoCli(clienteVO.getApellinoCli());
+        cliente.setApellidoCli(clienteVO.getApellidoCli());
         cliente.setDireccionCli(clienteVO.getDireccionCli());
         cliente.setTelefonoCli(clienteVO.getTelefonoCli());
         cliente.setEmailCli(clienteVO.getEmailCli());
@@ -34,8 +35,9 @@ public class ClienteResource {
         if (cliente == null) {
             return new ResponseEntity<Cliente>(HttpStatus.NOT_FOUND);
         } else {
+            cliente.setIdentificacionCli(clienteVO.getIdentificacionCli());
             cliente.setNombreCli(clienteVO.getNombreCli());
-            cliente.setApellidoCli(clienteVO.getApellinoCli());
+            cliente.setApellidoCli(clienteVO.getApellidoCli());
             cliente.setDireccionCli(clienteVO.getDireccionCli());
             cliente.setTelefonoCli(clienteVO.getTelefonoCli());
             cliente.setEmailCli(clienteVO.getEmailCli());
