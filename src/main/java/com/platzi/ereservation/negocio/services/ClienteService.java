@@ -5,6 +5,8 @@ import com.platzi.ereservation.negocio.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 public class ClienteService {
@@ -32,5 +34,9 @@ public class ClienteService {
     @Transactional
     public Cliente findByIdentificacion(String identificacionCli){
         return this.clienteRepository.findByIdentificacion(identificacionCli);
+    }
+
+    public List<Cliente> findAll() {
+        return this.clienteRepository.findAll();
     }
 }

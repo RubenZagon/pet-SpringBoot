@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/cliente")
 public class ClienteResource {
@@ -44,4 +46,20 @@ public class ClienteResource {
             return new ResponseEntity<>(this.clienteService.create(cliente), HttpStatus.OK);
         }
     }
+
+    @DeleteMapping("/{identificacion}")
+    public void removeCliente(@PathVariable("identificacion") String identificacion ){
+        Cliente cliente = this.clienteService.findByIdentificacion(identificacion);
+        if (cliente != null) {
+            this.clienteService.delete(cliente);
+        } else {
+//            return new ResponseEntity<Cliente>(HttpStatus.NOT_FOUND);
+
+        }
+    }
+
+    public ResponseEntity<List<Cliente>> findAll(){
+        return ResponseEntity.ok(this.clienteService.findAll());
+    }
+
 }
